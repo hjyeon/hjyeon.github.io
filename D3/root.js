@@ -1,5 +1,5 @@
 let myPlot = document.getElementById('root'),
-    d3 = Plotly.d3.csv('Musical Instruments2.csv',
+    d3 = Plotly.d3.csv('Toys & Games',
     function(err, rows){
     function unpack(rows, key) {
     return rows.map(function(row) {return row[key]})
@@ -8,8 +8,10 @@ let myPlot = document.getElementById('root'),
             type: "treemap",
             maxdepth: 2,
             ids: unpack(rows, 'id'),
+            branchvalues: "remainder",
             labels: unpack(rows, 'name'),
             parents: unpack(rows, 'parent'),
+            values: unpack(rows,'subtreeProductCount'),
             textposition: 'inside',
             insidetextorientation: 'radial'
     }]
