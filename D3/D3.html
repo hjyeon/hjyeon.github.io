@@ -2,11 +2,30 @@
 <html>
 <head>
     <!-- Plotly.js -->
-	<script src="plotly-latest.min.js"></script>
+    <script src="plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-    <div id="root" style="width:800px;height:600px;"></div>
-    <div id="detail" style="width:400px;height:400px;"></div>
+
+    <div id="menu" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/D3">Main Menu</a>
+        <a href="#">Useful Links</a>
+        <a href="#">???</a>
+        <a href="#">???</a>
+    </div>
+    <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+    <script src = "menu.js"></script>
+    <div class="dropdown">
+        <button onclick="dropFunction()" class="dropbtn">Change the Category</button>
+        <div id="myDropdown" class="dropdown-content">        
+        </div>
+    </div>
+    <div id="root" float:left; style="width:800px;height:600px;"></div>
+
+    <div id="detail" float:left; style="width:400px;height:400px;"></div>
+
+    
     <script src="root.js"></script>
 </body>
 
