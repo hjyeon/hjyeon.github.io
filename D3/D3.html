@@ -21,11 +21,16 @@
         <div id="myDropdown" class="dropdown-content">        
         </div>
     </div>
-    <div id="root" float:left; style="width:800px;height:600px;"></div>
-
-    <div id="detail" float:left; style="width:400px;height:400px;"></div>
-
-    
+    <input type="radio" id="treemap" checked="checked" value = 'treemap' onclick="handleRadioClick(this)">
+    <label for="treemap">Treemap</label>
+    <input type="radio" id="sunburst" value = 'sunburst' onclick="handleRadioClick(this)">
+    <label for="sunburst">Sunburst Chart</label><br>
+    <p id ="message">This is Toys & Games which contains 18 main subcategories with 336072 products. <br>
+        We recommend that you pick a subcategory. <br>
+        Otherwise, your product will no longer show up once the buyer enters a subcategory of their interest. <br>
+        The chart shows the main subcategories. The relative size of boxes reflects the number of products in them.</p>
+    <div id="root" style="float:left;width:800px;height:600px;"></div>
+    <div id="detail" style="float:left;width:300px;height:300px;"></div>    
     <script src="root.js"></script>
 </body>
 

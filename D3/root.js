@@ -1,10 +1,15 @@
 let categoryName = 'Toys & Games';
+let chartType = "treemap";
 let myPlot = document.getElementById('root');
-d3 = Plotly.d3.csv(categoryName+'.csv', function(err, rows){function unpack(rows, key) {
-    return rows.map(function(row) {return row[key]})
+function makeplot() {
+    Plotly.d3.csv(categoryName+'.csv', function(err, data){ processData(err, data) } );
+};
+function processData(err, rows) {
+    function unpack(rows, key) {
+        return rows.map(function(row) {return row[key]})
     }
     var data = [{
-            type: "treemap",
+            type: chartType,
             maxdepth: 3,
             ids: unpack(rows, 'id'),
             branchvalues: "remainder",
@@ -20,7 +25,7 @@ d3 = Plotly.d3.csv(categoryName+'.csv', function(err, rows){function unpack(rows
 
     var layout = {
         hovermode:'closest',
-        title:'Click to see more',
+        title:'Click to Explore Subcategories',
     };
 
     Plotly.newPlot('root', data, layout, {showSendToCloud: false})
@@ -43,12 +48,12 @@ d3 = Plotly.d3.csv(categoryName+'.csv', function(err, rows){function unpack(rows
             Plotly.newPlot('detail', data);
             };    }
     });
-});
-    
+}
+makeplot();
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-var textByLine = ['All Beauty',
+var textByLine = ['All Beauty', 
 'All Credit Cards',
 'All Electronics',
 'Alternative Rock',
@@ -140,7 +145,7 @@ for(i =0 ; i < textByLine.length; i++) {
         console.log(node.textContent);
         if(node.textContent=='Musical Instruments'||node.textContent=='Toys & Games'){
             categoryName = node.textContent;
-            d3 = Plotly.d3.csv(categoryName+".csv", function(err, rows){function unpack(rows, key) {
+            Plotly.d3.csv(categoryName+".csv", function(err, rows){function unpack(rows, key) {
                 return rows.map(function(row) {return row[key]})
                 }
                 var data = [{
@@ -209,4 +214,11 @@ function dropFunction() {
     }    
   }
 
+  function handleRadioClick(radio) {
+    let id = radio.id;
+    chartType = id;
+    if (id == "sunburst") id = 'treemap'; else id = 'sunburst';
+    document.getElementById(id).checked = false;
+    makeplot();
 
+}
