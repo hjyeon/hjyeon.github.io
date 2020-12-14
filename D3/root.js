@@ -24,6 +24,10 @@ let textByLine = ["Books","Movies & TV","Clothing, Shoes & Jewelry","Sports & Ou
 "Appstore for Android","Learning & Education","Microsoft","All Credit Cards","Collectible Coins",
 "Celebrate your Birthday with Nickelodeon","Nickelodeon","Entertainment","Amazon Coins","Amazon Fire TV","#508510", "Everything Else"]
 textByLine.sort();
+
+/*
+ * This is for the main pie chart. 
+ */
 function mainPie() {
     Plotly.d3.csv('mainCategories.csv', function(err, data){ processMainData(err, data) } );
 }
@@ -44,8 +48,6 @@ function processMainData(err,rows) {
         textinfo: 'percent',
         automargin: true
     }]
-       
-    
     let layout = {
         hovermode:'closest',
         title:'Here are 85 Main Categories of Amazon!',
@@ -57,17 +59,15 @@ function processMainData(err,rows) {
             pad: 4
           },
     };
-
     let config = {
         displaylogo: false,
         modeBarButtonsToRemove: ['hoverClosestPie', 'showSendToCloud'],
-    };
-    
+    };    
     Plotly.newPlot('root', data, layout, config);
     mainMessage.innerHTML = "<b> &nbsp;&nbsp;Welcome to Amazon Seller Category Discovery Tool!</b> Amazon has over 20,000 categories, but your product can only go to <b>one</b> of these (and its upper-categories). This tool can help pick the right category for your product by providing a comparison between the categories. \
     Amazon currently requires sellers to pick one category per product. Historically, un-categorized items were under \"Everything Else,\" but this is disabled as of 2018. Visit \"Useful Links\" for more detailed information about this, category fee and more!  <br> \
     &nbsp;&nbsp;The most important thing is to get the <b> main category </b> right. Often, a product fits multiple categories equally well. But (as a formal seller), I ask this question: \"Which category would my targeted buyers most likely to go into?\" <br><br> \
-    Click the sector to see more price information. Click the category name in the legend to select/deselect the category. If you double click something in the legend, it will only select that. Click 📷 Camera button to download the chart." 
+    Click the sector to see more price information. Click the category name in the legend to select/deselect the category. If you double click something in the legend, it will only select that. Hover over the chart then click 📷 Camera button to download the chart." 
 
     myPlot.on('plotly_click', function(data){
         console.log(data.points[0].label);
@@ -121,18 +121,16 @@ function processMainData(err,rows) {
 mainPie();
 
 /*
- * Function to make either sunburst or treemap plot
+ * Function to make either sunburst or treemap plot for sub-categories
  */
 function makeplot() {
     Plotly.d3.csv(categoryName+'.csv', function(err, data){ processData(err, data) } );
 };
 
-
 function processData(err, rows) {
     function unpack(rows, key) {
         return rows.map(function(row) {return row[key]})
     }
-
     var data = [{
             type: chartType,
             maxdepth: 3,
@@ -149,7 +147,6 @@ function processData(err, rows) {
             texttemplate:'<b>%{label}</b><br>Number of Products:<br>%{value}',
             hovertemplate: '%{currentPath}<b>%{label}</b><br>Percentage of...<br> %{root}: %{percentRoot: .2%}<br> %{parent}: %{percentParent: .2%}<extra>Average Price: <br>$ %{text}</extra>',
     }]   
-
     let layout = {
         hovermode:'closest',
         title:'Click to Explore Subcategories of ' + categoryName,
@@ -161,16 +158,14 @@ function processData(err, rows) {
             pad: 4
           },
     };
-
     let config = {
         displaylogo: false,
-        modeBarButtonsToRemove: ['showSendToCloud','toggleHover'],
-        
-
+        modeBarButtonsToRemove: ['showSendToCloud','toggleHover'],        
     }
-
-    Plotly.newPlot('root', data, layout, config)
-    
+    Plotly.newPlot('root', data, layout, config);   
+    /*
+     * Event Handler for clicking Treemap or Sunburst Chart
+     */
     myPlot.on('plotly_click', function(data){
         console.log(data.points[0].label);         
         let xs = ['Under $10','Under $25','Under $50','Under $100','Over $100','No price information'];
@@ -180,7 +175,6 @@ function processData(err, rows) {
         for(i = 0 ; i < size ; i++) {
             if (rows[i].name == data.points[0].label) {
                 avgPrice = rows[i].averagePrice;
-                //console.log(rows[i]);
                 ys.push(rows[i].numUnder10);
                 ys.push(rows[i].numUnder25);
                 ys.push(rows[i].numUnder50);
@@ -220,8 +214,8 @@ function processData(err, rows) {
         Plotly.newPlot('detail', data, layout, config);
     });
 }
-//makeplot();
 
+// Make dropdown Menu for 85 categories
 for(i =0 ; i < textByLine.length; i++) {
     let node = document.createElement("a");
     node.appendChild(document.createTextNode(textByLine[i]));
@@ -237,18 +231,15 @@ for(i =0 ; i < textByLine.length; i++) {
             nameShown = categoryName;
         }
         makeplot();
+        // Update the main message
         for (i = 0 ; i < mainCategoriesCSV.length; i ++) {
             if (mainCategoriesCSV[i][0]==categoryName) {
                 mainMessage.innerHTML= "This is " + nameShown.bold() +" which contains "+ "<b>" + mainCategoriesCSV[i][3] + "</b>" +" main subcategories with <b>"+ mainCategoriesCSV[i][2] +"</b> products."+"\n"+
                 "The average known price of the products in this category is <b>$" +mainCategoriesCSV[i][4] + "</b>. Click to see more price information.\n"+
                 "The chart shows " + nameShown+ "'s the main subcategories. The relative size of boxes/sectors reflects the number of products in them."+"\n"+
                 "We recommend that you pick a subcategory if possible. Otherwise, your product will no longer show up once the buyer enters a subcategory of their interest."+"\n"
-                
             }
-   
-        }
-            
-
+        }  
     }
     document.getElementById("myDropdown").appendChild(node);
 }
@@ -258,8 +249,8 @@ function dropFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
@@ -270,9 +261,12 @@ function dropFunction() {
         }
       }
     }    
-  }
+}
 
-  function handleRadioClick(radio) {
+/*
+ * Use Radio Button to choose display Type
+ */
+function handleRadioClick(radio) {
     let id = radio.id;
     chartType = id;
     if (id == "sunburst") id = 'treemap'; else id = 'sunburst';
@@ -280,7 +274,17 @@ function dropFunction() {
     makeplot();
 }
 
+function usefulLink(hyperlink) {
+    document.getElementById("detail").innerHTML = "";
+    document.getElementById("root").innerHTML = "";
+    document.getElementById("message").innerHTML = "<b> Here are some links to find more about categories: </b><br> <br>\
+    🔍 <a href=\"https://sellercentral.amazon.com/gp/help/external/G200332540?language=en_US\" target=\"_blank\">Amazon Overview of Categories</a><br>\
+    💸 <a href=\"https://sellercentral.amazon.com/gp/help/external/200336920\"target=\"_blank\">Amazon Category Fee Information</a><br>\
+    ❓ <a href=\"https://sellercentral.amazon.com/forums/t/why-has-amazon-locked-the-everything-else-category-any-one-know/405988\"target=\"_blank\">Why did Amazon disable Everything Else category?</a><br>"
+}
 
+
+// Too lazy to read csv file... so here is the csv file as an array of arrays. 
 let mainCategoriesCSV = [
 ["Books",1940253,2370585,32,17.63],
 ["Clothing, Shoes & Jewelry",0,1503384,225,46.29],
