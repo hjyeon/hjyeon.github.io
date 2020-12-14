@@ -1,9 +1,8 @@
 /* The sidepanel menu */
-div {
+body {
   font-family: Sans-serif;
 }
 p {
-  font-family: Sans-serif;
   white-space: pre-line;
 }
 label {

@@ -36,11 +36,13 @@ function processMainData(err,rows) {
         type: "pie",
         values: unpack(rows,'subtreeProductCount'),
         labels: unpack(rows, 'name'),
-
         textposition: 'inside',
         hole: 0.4,
         insidetextorientation: 'radial',
-        }]
+        text: unpack(rows,'fee'),
+        hovertemplate: '<b>%{label}</b><br>Number of Products: %{value}<br>Percent in Amazon: %{percent: .2%}<extra>Fee:<br>%{text}</extra>',
+        textinfo: 'percent'    
+    }]
        
     
         let layout = {
@@ -75,7 +77,7 @@ function processMainData(err,rows) {
             type: 'bar',
             };
         let layout = {
-            title: 'Average Price of Items in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
+            title: 'Average Price of Products in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
         }
         var data = [trace];
         Plotly.newPlot('detail', data, layout);
@@ -104,10 +106,13 @@ function processData(err, rows) {
             labels: unpack(rows, 'name'),
             parents: unpack(rows, 'parent'),
             values: unpack(rows,'subtreeProductCount'),
+            text: unpack(rows,'averagePrice'),
             //marker: {line: {color: 'rgba(0,0,0,0)'}},
             textposition: 'top center',
             insidetextorientation: 'radial',
-            hoverinfo: 'label+current path+percent parent',
+            percentParent: 'percent parent',
+            texttemplate:'<b>%{label}</b><br>Number of Products:<br>%{value}',
+            hovertemplate: '%{currentPath}<b>%{label}</b><br>Percentage of...<br> %{root}: %{percentRoot: .2%}<br> %{parent}: %{percentParent: .2%}<extra>Average Price: <br>$ %{text}</extra>',
     }]
    
 
@@ -144,7 +149,7 @@ function processData(err, rows) {
             type: 'bar',
             };
         let layout = {
-            title: 'Average Price of Items in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
+            title: 'Average Price of Products in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
         }
         var data = [trace];
         Plotly.newPlot('detail', data, layout);
@@ -168,7 +173,6 @@ for(i =0 ; i < textByLine.length; i++) {
         }
         makeplot();
         for (i = 0 ; i < mainCategoriesCSV.length; i ++) {
-            console.log(mainCategoriesCSV[i]);
             if (mainCategoriesCSV[i][0]==categoryName) {
                 mainMessage.innerHTML= "This is " + nameShown.bold() +" which contains "+ "<b>" + mainCategoriesCSV[i][3] + "</b>" +" main subcategories with <b>"+ mainCategoriesCSV[i][2] +"</b> products."+"\n"+
                 "The average price of the products in this category is <b>$" +mainCategoriesCSV[i][4] + "</b>\n"+
