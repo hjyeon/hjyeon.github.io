@@ -3,7 +3,7 @@ let mainMessage = document.getElementById('message');
 // Main Category Info
 let numCategories = 84;
 // Information about the current page
-let categoryName = 'beauty';
+let categoryName = 'main';
 let numSubCategory = 0;
 let averagePriceOfCategory = 0;
 let numTotalProducts = 0;
@@ -25,6 +25,64 @@ let textByLine = ["Books","Movies & TV","Clothing, Shoes & Jewelry","Sports & Ou
 "Celebrate your Birthday with Nickelodeon","Nickelodeon","Entertainment","Amazon Coins","Amazon Fire TV","#508510"]
 textByLine.sort();
 
+function mainPie() {
+    Plotly.d3.csv('mainCategories.csv', function(err, data){ processMainData(err, data) } );
+}
+function processMainData(err,rows) {
+    function unpack(rows, key) {
+        return rows.map(function(row) {return row[key]})
+    }
+    
+    var data = [{
+        type: "pie",
+        values: unpack(rows,'subtreeProductCount'),
+        labels: unpack(rows, 'name'),
+
+        textposition: 'inside',
+        hole: 0.4,
+        insidetextorientation: 'radial',
+        }]
+       
+    
+        let layout = {
+            hovermode:'closest',
+            title:'Here are 85 Main Categories of Amazon!',
+        };
+    
+        Plotly.newPlot('root', data, layout, {showSendToCloud: false})
+        myPlot.on('plotly_click', function(data){
+            console.log(data.points[0].label);
+            let xs = ['Under $10','Under $25','Under $50','Under $100','Over $100','No price information'];
+        let size = rows.length;
+        let avgPrice = 0;
+        let ys = [];
+        for(i = 0 ; i < size ; i++) {
+            if (rows[i].name == data.points[0].label) {
+                avgPrice = rows[i].averagePrice;
+                //console.log(rows[i]);
+                ys.push(rows[i].numUnder10);
+                ys.push(rows[i].numUnder25);
+                ys.push(rows[i].numUnder50);
+                ys.push(rows[i].numUnder100);
+                ys.push(rows[i].numOver100);
+                ys.push(rows[i].noPrice);
+                break;
+            }
+        };
+
+        var trace = {
+            x: xs,
+            y: ys,
+            type: 'bar',
+            };
+        let layout = {
+            title: 'Average Price of Items in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
+        }
+        var data = [trace];
+        Plotly.newPlot('detail', data, layout);
+        })        
+}
+mainPie();
 
 /*
  * Function to make either sunburst or treemap plot
@@ -38,8 +96,7 @@ function processData(err, rows) {
     function unpack(rows, key) {
         return rows.map(function(row) {return row[key]})
     }
-    //let priceInfo = unpack(rows,['name'])
-    //console.log(rows[1].name)
+
     var data = [{
             type: chartType,
             maxdepth: 3,
