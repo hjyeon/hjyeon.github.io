@@ -15,7 +15,7 @@ label {
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgba(179, 179, 204,0.5);
+  background-color: rgba(200, 200, 200, 0.883);
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -34,7 +34,7 @@ label {
 
 /* When you mouse over the navigation links, change their color */
 .sidepanel a:hover {
-  color: #f1f1f1;
+  color: white;
 }
 
 /* Position and style the close button (top right corner) */
@@ -57,7 +57,7 @@ label {
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color: grey;
 }
 
 /* Dropdown Button */

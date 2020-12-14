@@ -41,19 +41,37 @@ function processMainData(err,rows) {
         insidetextorientation: 'radial',
         text: unpack(rows,'fee'),
         hovertemplate: '<b>%{label}</b><br>Number of Products: %{value}<br>Percent in Amazon: %{percent: .2%}<extra>Fee:<br>%{text}</extra>',
-        textinfo: 'percent'    
+        textinfo: 'percent',
+        automargin: true
     }]
        
     
-        let layout = {
-            hovermode:'closest',
-            title:'Here are 85 Main Categories of Amazon!',
-        };
+    let layout = {
+        hovermode:'closest',
+        title:'Here are 85 Main Categories of Amazon!',
+        margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+          },
+    };
+
+    let config = {
+        displaylogo: false,
+        modeBarButtonsToRemove: ['hoverClosestPie', 'showSendToCloud'],
+    };
     
-        Plotly.newPlot('root', data, layout, {showSendToCloud: false})
-        myPlot.on('plotly_click', function(data){
-            console.log(data.points[0].label);
-            let xs = ['Under $10','Under $25','Under $50','Under $100','Over $100','No price information'];
+    Plotly.newPlot('root', data, layout, config);
+    mainMessage.innerHTML = "<b> &nbsp;&nbsp;Welcome to Amazon Seller Category Discovery Tool!</b> Amazon has over 20,000 categories, but your product can only go to <b>one</b> of these (and its upper-categories). This tool can help pick the right category for your product by providing a comparison between the categories. \
+    Amazon currently requires sellers to pick one category per product. Historically, un-categorized items were under \"Everything Else,\" but this is disabled as of 2018. Visit \"Useful Links\" for more detailed information about this, category fee and more!  <br> \
+    &nbsp;&nbsp;The most important thing is to get the <b> main category </b> right. Often, a product fits multiple categories equally well. But (as a formal seller), I ask this question: \"Which category would my targeted buyers most likely to go into?\" <br><br> \
+    Click the sector to see more price information. Click the category name in the legend to select/deselect the category. If you double click something in the legend, it will only select that. Click 📷 Camera button to download the chart." 
+
+    myPlot.on('plotly_click', function(data){
+        console.log(data.points[0].label);
+        let xs = ['Under $10','Under $25','Under $50','Under $100','Over $100','No price information'];
         let size = rows.length;
         let avgPrice = 0;
         let ys = [];
@@ -74,13 +92,30 @@ function processMainData(err,rows) {
         var trace = {
             x: xs,
             y: ys,
+            marker:{
+                color: ['rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)','rgba(115,115,115,.5)']
+              },
+            text: ['products', 'products', 'products', 'products', 'products', 'products'],
+            name: 'Number of Products',
             type: 'bar',
-            };
+        };
         let layout = {
             title: 'Average Price of Products in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
+            margin: {
+                l: 50,
+                r: 50,
+                b: 100,
+                t: 100,
+                pad: 4
+              },
+        }
+        let config = {
+            displaylogo: false,
+            scrollZoom: true,
+            modeBarButtonsToRemove: ['select2d','lasso2d', 'zoom2d'],
         }
         var data = [trace];
-        Plotly.newPlot('detail', data, layout);
+        Plotly.newPlot('detail', data, layout, config);
         })        
 }
 mainPie();
@@ -113,15 +148,28 @@ function processData(err, rows) {
             percentParent: 'percent parent',
             texttemplate:'<b>%{label}</b><br>Number of Products:<br>%{value}',
             hovertemplate: '%{currentPath}<b>%{label}</b><br>Percentage of...<br> %{root}: %{percentRoot: .2%}<br> %{parent}: %{percentParent: .2%}<extra>Average Price: <br>$ %{text}</extra>',
-    }]
-   
+    }]   
 
     let layout = {
         hovermode:'closest',
         title:'Click to Explore Subcategories of ' + categoryName,
+        margin: {
+            l: 20,
+            r: 20,
+            b: 50,
+            t: 50,
+            pad: 4
+          },
     };
 
-    Plotly.newPlot('root', data, layout, {showSendToCloud: false})
+    let config = {
+        displaylogo: false,
+        modeBarButtonsToRemove: ['showSendToCloud','toggleHover'],
+        
+
+    }
+
+    Plotly.newPlot('root', data, layout, config)
     
     myPlot.on('plotly_click', function(data){
         console.log(data.points[0].label);         
@@ -146,13 +194,30 @@ function processData(err, rows) {
         var trace = {
             x: xs,
             y: ys,
+            marker:{
+                color: ['rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)', 'rgba(115,115,115,1)','rgba(115,115,115,.5)']
+              },
+            name: 'Number of Products',
+            text: ['products', 'products', 'products', 'products', 'products', 'products'],
             type: 'bar',
             };
         let layout = {
             title: 'Average Price of Products in'+'<br>'+  data.points[0].label +" is $" + avgPrice,
+            margin: {
+                l: 50,
+                r: 50,
+                b: 100,
+                t: 100,
+                pad: 4
+              },
+        }
+        let config = {
+            displaylogo: false,
+            scrollZoom: true,
+            modeBarButtonsToRemove: ['select2d','lasso2d', 'zoom2d'],
         }
         var data = [trace];
-        Plotly.newPlot('detail', data, layout);
+        Plotly.newPlot('detail', data, layout, config);
     });
 }
 //makeplot();
@@ -175,10 +240,10 @@ for(i =0 ; i < textByLine.length; i++) {
         for (i = 0 ; i < mainCategoriesCSV.length; i ++) {
             if (mainCategoriesCSV[i][0]==categoryName) {
                 mainMessage.innerHTML= "This is " + nameShown.bold() +" which contains "+ "<b>" + mainCategoriesCSV[i][3] + "</b>" +" main subcategories with <b>"+ mainCategoriesCSV[i][2] +"</b> products."+"\n"+
-                "The average price of the products in this category is <b>$" +mainCategoriesCSV[i][4] + "</b>\n"+
-                "We recommend that you pick a subcategory if possible."+"\n"+
-                "Otherwise, your product will no longer show up once the buyer enters a subcategory of their interest."+"\n"+
-                "The chart shows the main subcategories. The relative size of boxes reflects the number of products in them."
+                "The average known price of the products in this category is <b>$" +mainCategoriesCSV[i][4] + "</b>. Click to see more price information.\n"+
+                "The chart shows " + nameShown+ "'s the main subcategories. The relative size of boxes/sectors reflects the number of products in them."+"\n"+
+                "We recommend that you pick a subcategory if possible. Otherwise, your product will no longer show up once the buyer enters a subcategory of their interest."+"\n"
+                
             }
    
         }
