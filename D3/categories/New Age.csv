@@ -1,0 +1,5 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,New Age,0,1307,,3,3.02,507,2,0,0,0,798
+1,Meditation,1015,1015,0,0,3.03,406,2,0,0,0,607
+2,Environmental,349,349,0,0,2.56,133,0,0,0,0,216
+3,Celtic New Age,66,66,0,0,3.41,32,0,0,0,0,34

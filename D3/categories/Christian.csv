@@ -1,0 +1,13 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Christian,5179,7641,,11,2.93,3474,35,0,0,0,4132
+1,Christian Contemporary Music,1900,1900,0,0,2.75,969,13,0,0,0,918
+2,Rap & Hip-Hop,223,223,0,0,3.5,55,0,0,0,0,168
+3,Praise & Worship,1306,1306,0,0,2.79,692,8,0,0,0,606
+4,Holiday,157,157,0,0,2.79,60,1,0,0,0,96
+5,Children's,140,140,0,0,4.57,73,3,0,0,0,64
+6,Country & Bluegrass,306,306,0,0,2.4,111,1,0,0,0,194
+7,Instrumental,63,63,0,0,4.87,50,3,0,0,0,10
+8,Rock & Metal,53,53,0,0,3.42,24,0,0,0,0,29
+9,Alternative,59,59,0,0,4.03,22,0,0,0,0,37
+10,Country Gospel,164,164,0,0,2.33,54,1,0,0,0,109
+11,Accompaniment,14,14,0,0,3.5,13,0,0,0,0,1

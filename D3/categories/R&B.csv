@@ -1,0 +1,12 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,R&B,0,2281,,10,2.31,899,5,0,0,0,1377
+1,Soul,1630,1630,0,0,2.3,687,4,0,0,0,939
+2,Neo-Soul,115,115,0,0,1.6,35,1,0,0,0,79
+3,Funk,204,204,0,0,2.71,80,0,0,0,0,124
+4,Contemporary R&B,404,404,0,0,2.22,109,1,0,0,0,294
+5,Classic R&B,165,165,0,0,2.45,78,0,0,0,0,87
+6,Live Recordings,2,2,0,0,0,0,0,0,0,0,2
+7,Motown,5,5,0,0,1.09,2,0,0,0,0,3
+8,Quiet Storm,18,18,0,0,1.01,10,0,0,0,0,8
+9,Compilations,10,10,0,0,1.65,5,0,0,0,0,5
+10,New Jack,3,3,0,0,0,0,0,0,0,0,3

@@ -1,0 +1,5 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Broadway & Vocalists,0,294,,3,4.09,110,5,0,0,0,179
+1,Musicals,148,148,0,0,4.68,63,5,0,0,0,80
+2,Traditional Vocal Pop,155,155,0,0,3.24,51,0,0,0,0,104
+3,Cabaret,32,32,0,0,4.99,2,0,0,0,0,30

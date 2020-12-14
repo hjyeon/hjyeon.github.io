@@ -1,0 +1,3 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Everything Else,194914,194914,,0,26.09,47313,34765,17186,7519,4310,83821
+

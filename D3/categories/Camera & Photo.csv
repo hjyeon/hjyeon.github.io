@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Camera & Photo,462,462,,0,46.66,73,96,46,18,29,200

@@ -1,0 +1,8 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Miscellaneous,0,5359,,6,3.97,2277,45,3,0,0,3034
+1,Holiday,1439,1439,0,0,3.33,660,14,0,0,0,765
+2,"Poetry, Spoken Word & Interviews",1368,1368,0,0,4.77,594,16,2,0,0,756
+3,Sound Effects,546,546,0,0,3.13,231,1,0,0,0,314
+4,Comedy,2139,2139,0,0,4.04,801,14,2,0,0,1322
+5,Wedding Music,6,6,0,0,1.06,4,0,0,0,0,2
+6,Exercise,140,140,0,0,6.71,89,1,0,0,0,50

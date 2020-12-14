@@ -1,0 +1,6 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Children's Music,0,313,,4,4.51,136,1,0,0,0,176
+1,Compilations,4,4,0,0,0,0,0,0,0,0,4
+2,Lullabies,96,96,0,0,3.6,34,0,0,0,0,62
+3,Educational,219,219,0,0,4.8,103,1,0,0,0,115
+4,Sing-A-Longs,9,9,0,0,2.71,6,0,0,0,0,3

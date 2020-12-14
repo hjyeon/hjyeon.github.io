@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Kitchen & Dining,3751,3751,,0,28.59,357,399,184,78,51,2682

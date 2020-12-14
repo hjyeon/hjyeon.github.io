@@ -1,0 +1,16 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Rock,5,4498,,14,4.08,1108,21,0,0,0,3369
+1,Folk Rock,1389,1389,0,0,3.89,243,1,0,0,0,1145
+2,Country Rock,230,230,0,0,3.97,65,1,0,0,0,164
+3,Roots Rock,773,773,0,0,4.09,150,0,0,0,0,623
+4,Progressive,734,734,0,0,5.48,159,5,0,0,0,570
+5,Live Albums,25,25,0,0,5.79,10,1,0,0,0,14
+6,Singer-Songwriters,813,813,0,0,3.56,297,4,0,0,0,512
+7,Oldies & Retro,381,381,0,0,3.86,166,5,0,0,0,210
+8,Jam Bands,150,150,0,0,5.78,44,1,0,0,0,105
+9,Blues Rock,282,282,0,0,2.82,47,1,0,0,0,234
+10,Compilations,49,49,0,0,4.04,24,1,0,0,0,24
+11,Funk Rock,22,22,0,0,6.5,4,0,0,0,0,18
+12,Rap Rock,7,7,0,0,1.29,2,0,0,0,0,5
+13,Rock Guitarists,3,3,0,0,0.94,2,0,0,0,0,1
+14,Hard Rock,1,1,0,0,1.29,1,0,0,0,0,0

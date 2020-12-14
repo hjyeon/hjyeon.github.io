@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Gift Cards Store,5,5,,0,133.33,0,0,0,2,1,2

@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Office & School Supplies,3316,3316,,0,27.76,544,460,223,89,52,1948

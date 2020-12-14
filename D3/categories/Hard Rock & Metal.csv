@@ -1,0 +1,10 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Hard Rock & Metal,0,1068,,8,5.77,364,12,0,0,0,692
+1,Alternative Metal,199,199,0,0,5.12,51,0,0,0,0,148
+2,Thrash & Speed Metal,357,357,0,0,6.02,142,3,0,0,0,212
+3,Death Metal,261,261,0,0,6.65,66,2,0,0,0,193
+4,Hard Rock,318,318,0,0,5.18,120,5,0,0,0,193
+5,British Metal,5,5,0,0,11.74,1,1,0,0,0,3
+6,Live Albums,4,4,0,0,10.74,1,1,0,0,0,2
+7,Pop Metal,37,37,0,0,5.62,11,0,0,0,0,26
+8,Compilations,2,2,0,0,0,0,0,0,0,0,2

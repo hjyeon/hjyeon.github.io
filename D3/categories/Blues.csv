@@ -1,0 +1,13 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Blues,0,906,,11,3.83,229,3,0,0,0,674
+1,Acoustic Blues,187,187,0,0,4.1,28,0,0,0,0,159
+2,Contemporary Blues,165,165,0,0,3.09,55,0,0,0,0,110
+3,Delta Blues,94,94,0,0,5.35,37,1,0,0,0,56
+4,Modern Blues,318,318,0,0,3.05,78,0,0,0,0,240
+5,Regional Blues,227,227,0,0,3.4,55,0,0,0,0,172
+6,Electric Blues Guitar,162,162,0,0,3.66,57,2,0,0,0,103
+7,Chicago Blues,73,73,0,0,3.87,18,0,0,0,0,55
+8,Live Recordings,9,9,0,0,2.81,4,0,0,0,0,5
+9,Classic Female Vocal Blues,21,21,0,0,3.54,9,0,0,0,0,12
+10,Compilations,11,11,0,0,6.49,4,0,0,0,0,7
+11,Traditional Blues,55,55,0,0,3.89,22,0,0,0,0,33

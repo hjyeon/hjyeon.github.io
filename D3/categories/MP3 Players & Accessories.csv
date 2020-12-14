@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,MP3 Players & Accessories,1672,1672,,0,32.05,272,222,139,46,38,955

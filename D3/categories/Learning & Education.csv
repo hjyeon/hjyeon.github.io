@@ -1,0 +1,4 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Learning & Education,0,1,,1,0.99,1,0,0,0,0,0
+1,Early Development Toys,0,1,0,1,0.99,1,0,0,0,0,0
+2,Sorting & Stacking,1,1,1,0,0.99,1,0,0,0,0,0

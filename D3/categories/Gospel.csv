@@ -1,0 +1,6 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Gospel,1526,1647,,4,2.66,865,10,0,0,0,772
+1,Instrumental,14,14,0,0,4.54,11,2,0,0,0,1
+2,Urban & Contemporary,81,81,0,0,2.95,33,1,0,0,0,47
+3,Traditional,14,14,0,0,5.16,12,1,0,0,0,1
+4,Choir,12,12,0,0,1.05,10,0,0,0,0,2

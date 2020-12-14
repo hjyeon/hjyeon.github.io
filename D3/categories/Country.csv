@@ -1,0 +1,12 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Country,0,1695,,10,3.59,544,14,0,0,0,1137
+1,Alt-Country & Americana,682,682,0,0,3.96,201,6,0,0,0,475
+2,Traditional Country,751,751,0,0,3.33,235,6,0,0,0,510
+3,Honky-Tonk,85,85,0,0,3.4,29,0,0,0,0,56
+4,Cowboy,110,110,0,0,2.17,40,0,0,0,0,70
+5,Western Swing,56,56,0,0,4.25,11,0,0,0,0,45
+6,Bluegrass,97,97,0,0,3.83,51,2,0,0,0,44
+7,Compilations,17,17,0,0,3.13,11,1,0,0,0,5
+8,Live Recordings,8,8,0,0,6.82,3,0,0,0,0,5
+9,Contemporary Country,81,81,0,0,2.9,54,2,0,0,0,25
+10,Outlaw & Progressive Country,129,129,0,0,3.48,46,1,0,0,0,82

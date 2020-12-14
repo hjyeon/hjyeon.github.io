@@ -1,0 +1,8 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Folk,0,2393,,6,3.89,575,3,0,0,0,1815
+1,Traditional Folk,987,987,0,0,4.31,291,3,0,0,0,693
+2,Contemporary Folk,1360,1360,0,0,3.64,256,0,0,0,0,1104
+3,Traditional British & Celtic Folk,486,486,0,0,3.98,137,0,0,0,0,349
+4,Jewish & Yiddish Music,108,108,0,0,2.18,41,0,0,0,0,67
+5,Compilations,27,27,0,0,2.62,10,0,0,0,0,17
+6,Live Recordings,8,8,0,0,4.49,5,0,0,0,0,3

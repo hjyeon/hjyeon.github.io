@@ -1,0 +1,2 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Celebrate your Birthday with Nickelodeon,2,2,,0,1.14,2,0,0,0,0,0

@@ -1,0 +1,12 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Rap & Hip-Hop,0,794,,10,3.24,247,4,0,0,0,543
+1,West Coast,95,95,0,0,2.61,21,0,0,0,0,74
+2,Southern Rap,76,76,0,0,3.08,27,1,0,0,0,48
+3,East Coast,87,87,0,0,4.87,20,0,0,0,0,67
+4,International Rap,146,146,0,0,2.4,36,0,0,0,0,110
+5,Gangsta & Hardcore,204,204,0,0,3.41,76,1,0,0,0,127
+6,Experimental Rap,33,33,0,0,4.8,13,0,0,0,0,20
+7,Pop Rap,215,215,0,0,2.95,75,2,0,0,0,138
+8,Compilations,6,6,0,0,0.99,1,0,0,0,0,5
+9,Bass,26,26,0,0,2.52,9,0,0,0,0,17
+10,Old School,48,48,0,0,4.03,19,0,0,0,0,29

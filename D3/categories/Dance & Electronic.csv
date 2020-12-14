@@ -1,0 +1,14 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Dance & Electronic,287,4847,,12,3.39,1829,32,0,0,0,2986
+1,World Dance,133,133,0,0,3.34,52,1,0,0,0,80
+2,Electronica,4042,4042,0,0,3.49,1439,25,0,0,0,2578
+3,Trip-Hop,256,256,0,0,3.56,90,0,0,0,0,166
+4,Trance,420,420,0,0,4.88,119,10,0,0,0,291
+5,Techno,295,295,0,0,3.31,70,0,0,0,0,225
+6,House,782,782,0,0,2.56,279,3,0,0,0,500
+7,Drum & Bass,141,141,0,0,4.08,53,0,0,0,0,88
+8,Compilations,23,23,0,0,5.49,12,0,0,0,0,11
+9,Disco,74,74,0,0,3.33,31,1,0,0,0,42
+10,Freestyle,16,16,0,0,2.12,7,0,0,0,0,9
+11,Turntablists,6,6,0,0,6.99,1,0,0,0,0,5
+12,Dubstep,117,117,0,0,2.62,100,1,0,0,0,16

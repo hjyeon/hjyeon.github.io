@@ -1,0 +1,4 @@
+id,name,productCount,subtreeProductCount,parent,numChildren,averagePrice,numUnder10,numUnder25,numUnder50,numUnder100,numOver100,noPrice
+0,Movies & TV,1251,208321,,2,23.49,40912,72043,31227,9050,2391,52698
+1,Movies,142126,142126,0,0,21.42,30498,44817,18126,5082,1100,42503
+2,TV,65535,65535,0,0,27.28,10285,27116,13086,3999,1291,9758

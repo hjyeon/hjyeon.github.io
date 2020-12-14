@@ -4,6 +4,7 @@ div {
 }
 p {
   font-family: Sans-serif;
+  white-space: pre-line;
 }
 label {
   font-family: Sans-serif;
