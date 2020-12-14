@@ -1,7 +1,7 @@
 let myPlot = document.getElementById('root'); // Main pane
 let mainMessage = document.getElementById('message');
 // Main Category Info
-let numCategories = 84;
+let numCategories = 85;
 // Information about the current page
 let categoryName = 'main';
 let numSubCategory = 0;
@@ -22,9 +22,8 @@ let textByLine = ["Books","Movies & TV","Clothing, Shoes & Jewelry","Sports & Ou
 "Pop","Christian","Latin Music","Country","Children's Music","R&B","Broadway & Vocalists","Rap & Hip-Hop",
 "Classic Rock","Gospel","Hard Rock & Metal","New Age","Wine","Davis","Publishers","Apps for Android",
 "Appstore for Android","Learning & Education","Microsoft","All Credit Cards","Collectible Coins",
-"Celebrate your Birthday with Nickelodeon","Nickelodeon","Entertainment","Amazon Coins","Amazon Fire TV","#508510"]
+"Celebrate your Birthday with Nickelodeon","Nickelodeon","Entertainment","Amazon Coins","Amazon Fire TV","#508510", "Everything Else"]
 textByLine.sort();
-
 function mainPie() {
     Plotly.d3.csv('mainCategories.csv', function(err, data){ processMainData(err, data) } );
 }
