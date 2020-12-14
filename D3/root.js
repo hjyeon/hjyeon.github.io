@@ -30,7 +30,7 @@ textByLine.sort();
  * Function to make either sunburst or treemap plot
  */
 function makeplot() {
-    Plotly.d3.csv("/categories/"+categoryName+'.csv', function(err, data){ processData(err, data) } );
+    Plotly.d3.csv(categoryName+'.csv', function(err, data){ processData(err, data) } );
 };
 
 
