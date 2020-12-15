@@ -34,7 +34,7 @@ function data() {
 function userGuide(){
   document.getElementById("detail").innerHTML = "";
   document.getElementById("message").innerHTML = "";
-  document.getElementById("root").innerHTML = "<iframe src=\"https://docs.google.com/document/d/e/2PACX-1vTiUgAQEanzFyQheKu9RmkovpHOS7IXNPf1N71DIHfGo1948dbUulgp1kgOA3BwfxLkaci1-WPCqC6z/pub?embedded=true\" width=\"900\" height=\"500\"></iframe>"
+  document.getElementById("root").innerHTML = "<iframe src=\"https://docs.google.com/document/d/e/2PACX-1vTiUgAQEanzFyQheKu9RmkovpHOS7IXNPf1N71DIHfGo1948dbUulgp1kgOA3BwfxLkaci1-WPCqC6z/pub?embedded=true\" width=\"900\" height=\"500\" frameBorder=\"0\"></iframe>"
 
 }
 function hideMessage(button) {
