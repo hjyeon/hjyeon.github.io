@@ -47,3 +47,9 @@ function hideMessage(button) {
       button.textContent = "Show Message";
     }
 }
+
+function demoVideo(){
+  document.getElementById("detail").innerHTML = "";
+  document.getElementById("message").innerHTML = "";
+  document.getElementById("root").innerHTML = "<iframe width=\"800\" height=\"500\" src=\"https://www.youtube.com/embed/TaA242ysGGw\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+}
