@@ -52,8 +52,9 @@ label {
   cursor: pointer;
   background-color: #111;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 16px;
   border: none;
+  height:55px;
 }
 
 .openbtn:hover {
@@ -62,13 +63,13 @@ label {
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: black;
+    background-color: #111;
     color: white;
     padding: 16px;
     font-size: 20px;
     border: none;
     cursor: pointer;
-    height:50px;
+    
   }
   
   /* Dropdown button on hover & focus */

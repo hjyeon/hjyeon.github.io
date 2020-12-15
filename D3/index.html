@@ -10,22 +10,24 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="https://hjyeon.github.io/D3/">Main Page</a>
         <a id="usefulLinks" onclick = "usefulLink(this)">Useful Links</a>
-        <a href="#">About Data/Stat</a>
+        <a id = "data" onclick = "data()">About the Data</a>
         <a href="#">User Guide</a>
         <a href="#">Demo Video</a>
     </div>
     <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
     <script src = "menu.js"></script>
+    <button class="dropbtn" onclick="hideMessage(this)">Hide Message</button>
     <div class="dropdown">
         <button onclick="dropFunction()" class="dropbtn">Explore 85 Main Categories</button>
         <div id="myDropdown" class="dropdown-content">        
         </div>
     </div>
-    Display Options:
+    <b>Display Options:</b>
     <input type="radio" id="treemap" checked="checked" value = 'treemap' onclick="handleRadioClick(this)">
     <label for="treemap">Treemap</label>
     <input type="radio" id="sunburst" value = 'sunburst' onclick="handleRadioClick(this)">
     <label for="sunburst">Sunburst Chart</label><br>
+
     <p id ="message"></p>
     <div id="root" style="float:left;width:700px;height:500px;"></div>
     <div id="detail" style="float:left;width:400px;height:400px;"></div>    
