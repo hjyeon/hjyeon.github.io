@@ -65,10 +65,10 @@ function processMainData(err,rows) {
         modeBarButtonsToRemove: ['hoverClosestPie', 'showSendToCloud'],
     };    
     Plotly.newPlot('root', data, layout, config);
-    mainMessage.innerHTML = "<b> &nbsp;&nbsp;Welcome to Amazon Seller Category Discovery Tool!</b> Amazon has over 20,000 categories, but your product can only go to <b>one</b> of these (and its upper-categories). This tool can help pick the right category for your product by providing a comparison between the categories. \
+    mainMessage.innerHTML = "<b> &nbsp;&nbsp;Welcome to the Amazon Seller's Category Discovery Tool!</b> Amazon has over 20,000 categories, but your product can only go to <b>one</b> of these (and its parent categories). This tool can help pick the right category for your product by providing comparisons between the categories. \
     Amazon currently requires sellers to pick one category per product. Historically, un-categorized items were under \"Everything Else,\" but this is disabled as of 2018. Navigate to <b>&#9776; Menu > Useful Links</b> for more detailed information about this, category fees and more!  <br> \
-    &nbsp;&nbsp;The most important thing is to get the <b> main category </b> right. Often, a product fits multiple categories equally well. (As a formal seller), I suggest asking this question: \"Which category would my targeted buyers most likely to go into?\" Use <b>Explore 85 Main Categories</b> above to see more details about each category. <br><br> \
-    🖱️ Click the sector to see the price information. 🖱️ Click the category name in the legend to select/deselect the category. 🖱️🖱️ If you double click something in the legend, it will only select that. 📷 Click the Camera button shown as you mouse over to the chart to download the chart. 📑 You can navigate to <b>&#9776; Menu > About the Data</b> for the table view." 
+    &nbsp;&nbsp;The most important thing is to get the <b> main category </b> right. Often, a product fits multiple categories equally well. As a former seller, I suggest asking this question: \"Which category would my targeted buyers most likely go to?\" Use <b>Explore 85 Main Categories</b> above to see more details about each category. <br><br> \
+    🖱️ Click the sector to see the price information. 🖱️ Click the category name in the legend to select/deselect the category. 🖱️🖱️ If you double click something in the legend, it will select only that. 📷 Click the Camera button shown as you mouse over to the chart to download the chart. 📑 You can navigate to <b>&#9776; Menu > About the Data</b> for the table view." 
 
     myPlot.on('plotly_click', function(data){
         console.log(data.points[0].label);
@@ -235,10 +235,10 @@ for(i =0 ; i < textByLine.length; i++) {
         // Update the main message
         for (i = 0 ; i < mainCategoriesCSV.length; i ++) {
             if (mainCategoriesCSV[i][0]==categoryName) {
-                mainMessage.innerHTML= "This is " + nameShown.bold() +" which contains "+ "<b>" + mainCategoriesCSV[i][3] + "</b>" +" main subcategories with <b>"+ mainCategoriesCSV[i][2] +"</b> products."+"\n"+
+                mainMessage.innerHTML= "This is " + nameShown.bold() +" which contains <b>"+ mainCategoriesCSV[i][2] +"</b> products with "+"<b>" + mainCategoriesCSV[i][3] + "</b>" +" main subcategories."+"\n"+
                 "The average known price of the products in this category is <b>$" +mainCategoriesCSV[i][4] + "</b>. 🖱️ Click a category for more price information.\n"+
-                "The chart below shows " + nameShown.bold()+ "'s subcategories. The relative size of boxes/sectors reflects the number of products in them."+"\n"+
-                "The white space reflects the number of products that are no further categorized. "+
+                "The chart below shows " + "subcategories of "+ nameShown.bold()+". The relative size of boxes/sectors reflects the number of products in that subcategory."+"\n"+
+                "The white space reflects the number of products that are not further categorized. "+
                 "We recommend that you pick a subcategory if possible. <br> Otherwise, your product will no longer show up once the buyer enters a subcategory of their interest."+"\n"
             }
         }  
