@@ -31,6 +31,12 @@ function data() {
   📑 <b>Table View for 85 Main Categories:</b> Average Price only considers products with known prices. If everything in the category has no price information, then the default value for the average price is $0. \
   <iframe src=\"https://docs.google.com/spreadsheets/d/e/2PACX-1vQmyYsTOmHisR82yM_AHLmAjaI7d_TI9Vz20_tQdABgX-n60C95SUY_p1iB8CwPHcfO5sWYHu5HhrjL/pubhtml?widget=true&amp;headers=false\" width=\"900\" height=\"500\"></iframe>"
 }
+function userGuide(){
+  document.getElementById("detail").innerHTML = "";
+  document.getElementById("message").innerHTML = "";
+  document.getElementById("root").innerHTML = "<iframe src=\"https://docs.google.com/document/d/e/2PACX-1vTiUgAQEanzFyQheKu9RmkovpHOS7IXNPf1N71DIHfGo1948dbUulgp1kgOA3BwfxLkaci1-WPCqC6z/pub?embedded=true\" width=\"900\" height=\"500\"></iframe>"
+
+}
 function hideMessage(button) {
   let x = document.getElementById("message");
   if (x.style.display === "none") {

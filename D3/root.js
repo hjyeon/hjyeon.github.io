@@ -222,6 +222,7 @@ for(i =0 ; i < textByLine.length; i++) {
     node.appendChild(document.createTextNode(textByLine[i]));
     let nameShown = "";
     node.onclick = function(){
+        document.getElementById("root").innerHTML = "";
         console.log(node.textContent);
         if (node.textContent=="#508510") {
             categoryName = "508510";
