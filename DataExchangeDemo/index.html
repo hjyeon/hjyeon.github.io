@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sunburst + Histogram Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #eef1f5;
+      color: #1b1f27;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.6fr) minmax(300px, 1fr);
+      min-height: 100vh;
+      gap: 1px;
+      background: #d7dce2;
+    }
+    .panel {
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid #e5eaf1;
+      background: #fbfcfe;
+    }
+    iframe {
+      width: 100%;
+      flex: 1;
+      border: 0;
+      min-height: 0;
+    }
+    .message {
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      color: #4b5563;
+      border-top: 1px solid #e5eaf1;
+      background: #f8f9fb;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <section class="panel">
+      <div class="panel-header">Sunburst chart</div>
+      <iframe id="sunburstFrame" src="sunburst_chart.html" title="Sunburst chart"></iframe>
+    </section>
+    <section class="panel">
+      <div class="panel-header">Histogram chart</div>
+      <iframe id="histFrame" title="Histogram chart"></iframe>
+      <div class="message" id="hint">Click a sunburst segment to load its histogram.</div>
+    </section>
+  </div>
+
+  <script>
+    (function() {
+      var histogramMap = {
+        "Baby": "Baby_histogram_chart.html",
+        "Beauty & Skincare": "Beauty & Skincare_histogram_chart.html",
+        "Digital Goods": "Digital Goods_histogram_chart.html",
+        "Eco-Friendly": "Eco-Friendly_histogram_chart.html",
+        "Electronics": "Electronics_histogram_chart.html",
+        "Fashion": "Fashion_histogram_chart.html",
+        "Fitness": "Fitness_histogram_chart.html",
+        "Food & Beverage": "Food & Beverage_histogram_chart.html",
+        "Home & Garden": "Home & Garden_histogram_chart.html",
+        "Pet": "Pet_histogram_chart.html"
+      };
+
+      var hint = document.getElementById("hint");
+      var histFrame = document.getElementById("histFrame");
+
+      function showHint(text) {
+        hint.textContent = text;
+      }
+
+      function loadHistogram(label) {
+        console.log("loading histogram for", label);
+        var file = histogramMap[label];
+        if (!file) {
+          showHint("No histogram page found for: " + label);
+          histFrame.removeAttribute("src");
+          return;
+        }
+        histFrame.src = encodeURI(file);
+        showHint('Showing histogram for "' + label + '".');
+      }
+
+      function attachClickListener() {
+        var iframe = document.getElementById("sunburstFrame");
+        var win = iframe.contentWindow;
+        if (!win || !win.Plotly) return false;
+        var doc = iframe.contentDocument || win.document;
+        if (!doc) return false;
+        var graphDiv = doc.getElementById("28a377e3-a1c5-433e-8675-575da9c799b4") || doc.querySelector(".js-plotly-plot, .plotly-graph-div");
+        if (!graphDiv) return false;
+        if (graphDiv._histogramClickAttached) return true;
+        graphDiv._histogramClickAttached = true;
+
+        win.Plotly.on(graphDiv, "plotly_click", function(eventData) {
+          if (!eventData || !eventData.points || !eventData.points.length) return;
+          var point = eventData.points[0];
+          var label = point.label || point.currentPath || point.parent || "";
+          if (!label) return;
+          loadHistogram(label);
+        });
+
+        showHint("Click a segment in the sunburst to load its histogram.");
+        return true;
+      }
+
+      function waitForSunburstChart() {
+        var attempts = 0;
+        var timer = setInterval(function() {
+          if (attachClickListener()) {
+            clearInterval(timer);
+            return;
+          }
+          attempts += 1;
+          if (attempts >= 25) {
+            clearInterval(timer);
+            showHint("Unable to initialize the sunburst chart - try refreshing the page.");
+          }
+        }, 200);
+      }
+
+      window.addEventListener("message", function(event) {
+        console.log("parent received message", event.data);
+        if (!event.data || typeof event.data !== "object") return;
+        if (event.data.type === "sunburstReady") {
+          showHint("Sunburst chart ready; click a segment to load its histogram.");
+        } else if (event.data.type === "sunburstClick") {
+          var label = event.data.label || "";
+          console.log("parent sunburstClick label", label);
+          if (label) {
+            loadHistogram(label);
+          } else {
+            showHint("Sunburst click detected, but no label was provided.");
+          }
+        }
+      });
+
+      document.getElementById("sunburstFrame").addEventListener("load", function() {
+        showHint("Waiting for the sunburst chart to initialize...");
+        setTimeout(function() {
+          if (hint.textContent.indexOf("ready") === -1 && hint.textContent.indexOf("Unable") === -1) {
+            showHint("Still waiting for the sunburst chart. If nothing changes, refresh the page.");
+          }
+        }, 3000);
+      });
+
+      showHint("Waiting for the sunburst chart to load...");
+    })();
+  </script>
+</body>
+</html>
